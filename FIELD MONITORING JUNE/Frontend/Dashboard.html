@@ -1,0 +1,641 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-LF3va+9Jf7k4GyYMO8EMBo+wDkFPI59ft+Y5j6U9b1WmQDk3i94M2JfpSMr7kHwouP+dFpFv1DJ+7+6yccK4YA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <link rel="stylesheet" href="/Frontend/inevitable.css">
+  
+    <script
+      src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js"
+      defer
+      init
+    ></script>
+    <script type="text/javascript">
+      window.tailwind.config = {
+        darkMode: ["class"],
+        theme: {
+          extend: {
+            colors: {
+              border: "hsl(var(--border))",
+              input: "hsl(var(--input))",
+              ring: "hsl(var(--ring))",
+              background: "hsl(var(--background))",
+              foreground: "hsl(var(--foreground))",
+              primary: {
+                DEFAULT: "hsl(var(--primary))",
+                foreground: "hsl(var(--primary-foreground))",
+              },
+              secondary: {
+                DEFAULT: "hsl(var(--secondary))",
+                foreground: "hsl(var(--secondary-foreground))",
+              },
+              destructive: {
+                DEFAULT: "hsl(var(--destructive))",
+                foreground: "hsl(var(--destructive-foreground))",
+              },
+              muted: {
+                DEFAULT: "hsl(var(--muted))",
+                foreground: "hsl(var(--muted-foreground))",
+              },
+              accent: {
+                DEFAULT: "hsl(var(--accent))",
+                foreground: "hsl(var(--accent-foreground))",
+              },
+              popover: {
+                DEFAULT: "hsl(var(--popover))",
+                foreground: "hsl(var(--popover-foreground))",
+              },
+              card: {
+                DEFAULT: "hsl(var(--card))",
+                foreground: "hsl(var(--card-foreground))",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        :root {
+          --background: 0 0% 100%;
+          --foreground: 240 10% 3.9%;
+          --card: 0 0% 100%;
+          --card-foreground: 240 10% 3.9%;
+          --popover: 0 0% 100%;
+          --popover-foreground: 240 10% 3.9%;
+          --primary: 240 5.9% 10%;
+          --primary-foreground: 0 0% 98%;
+          --secondary: 240 4.8% 95.9%;
+          --secondary-foreground: 240 5.9% 10%;
+          --muted: 240 4.8% 95.9%;
+          --muted-foreground: 240 3.8% 46.1%;
+          --accent: 240 4.8% 95.9%;
+          --accent-foreground: 240 5.9% 10%;
+          --destructive: 0 84.2% 60.2%;
+          --destructive-foreground: 0 0% 98%;
+          --border: 240 5.9% 90%;
+          --input: 240 5.9% 90%;
+          --ring: 240 5.9% 10%;
+          --radius: 0.5rem;
+        }
+        .dark {
+          --background: 240 10% 3.9%;
+          --foreground: 0 0% 98%;
+          --card: 240 10% 3.9%;
+          --card-foreground: 0 0% 98%;
+          --popover: 240 10% 3.9%;
+          --popover-foreground: 0 0% 98%;
+          --primary: 0 0% 98%;
+          --primary-foreground: 240 5.9% 10%;
+          --secondary: 240 3.7% 15.9%;
+          --secondary-foreground: 0 0% 98%;
+          --muted: 240 3.7% 15.9%;
+          --muted-foreground: 240 5% 64.9%;
+          --accent: 240 3.7% 15.9%;
+          --accent-foreground: 0 0% 98%;
+          --destructive: 0 62.8% 30.6%;
+          --destructive-foreground: 0 0% 98%;
+          --border: 240 3.7% 15.9%;
+          --input: 240 3.7% 15.9%;
+          --ring: 240 4.9% 83.9%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="bg-[var(--background)] text-[var(--foreground)] min-h-screen p-4"
+    >
+      <header class="flex justify-between items-center mb-4">
+        <img src="/images/logo.png" alt="" height="auto" width="200">
+        <nav class="flex space-x-4">
+          <!-- <span>DRAFT</span>
+          <span>DRAFT</span>
+          <span>DRAFT</span>
+          <span>DRAFT</span>
+          <span>DRAFT</span>
+          <span>DRAFT</span> -->
+          <div class="flex items-center space-x-2">
+            <span>Lester</span>
+            <img
+              class="w-8 h-8 rounded-full"
+              src="../images/20240425-114317.jpg"
+              alt="User avatar"
+            />
+          </div>
+        </nav>
+      </header>
+      <main>
+        <div class="flex justify-start h-8 mb-4">
+          <img id="filter-icon" src="/images/filter.png" alt="">
+        </div>
+        <div id="filters" class="filters hidden mt-4 mb-4 p-4 border border-gray-300 rounded-lg" style="font-family: 'Poppins', sans-serif;">
+          <div class="grid grid-cols-4 gap-4 mb-4">
+            <input class="p-2 border border-gray-200 rounded" type="text" name="daterange" value=""/>
+            <input class="p-2 border border-gray-200 rounded" type="text" name="campaign" placeholder="Campaign">
+            <input class="p-2 border border-gray-200 rounded" type="text" name="chcode" placeholder="CH Code">
+            <input class="p-2 border border-gray-200 rounded" type="text" name="batch" placeholder="Batch number">
+          </div>
+          <button class="bg-blue-500 hover:bg-blue-400 text-white py-1 px-3 rounded text-md">
+            Apply
+          </button>
+          <button class="bg-green-500 hover:bg-green-400 text-white py-1 px-3 rounded text-md">
+            Refresh
+          </button>
+          
+        </div>
+        <div class="grid grid-cols-4 gap-4 mb-4">
+          <div
+            class="bg-white border border-[var(--border)] p-4 rounded-md shadow"
+          >
+            <div class="flex justify-between items-center">
+              <h2 class="text-lg font-semibold">NEW INPUTS</h2>
+              <div class="relative w-8 h-8 rounded-full bg-gradient-to-r from-[#B12727] to-transparent p-1">
+                <div class="w-full h-full bg-white rounded-full">
+                  <div class="text-red-500 text-center">88</div>
+                </div>
+              </div>
+            </div>
+            <div class="text-2xl text-green-500 mt-5"
+              >▲<span class="text-2xl text-black font-bold">286</span> %</div
+            >
+            <div class="h-1 bg-orange-500 mt-2"></div>
+          </div>
+          <div
+            class="bg-white border border-[var(--border)] p-4 rounded-md shadow"
+          >
+            <div class="flex justify-between items-center">
+              <h2 class="text-lg font-semibold">PRINTED</h2>
+              <div class="relative w-8 h-8 rounded-full bg-gradient-to-r from-[#B12727] to-transparent p-1">
+                <div class="w-full h-full bg-white rounded-full">
+                  <div class="text-red-500 text-center">02</div>
+                </div>
+              </div>
+            </div>
+            <div class="text-2xl text-red-500 mt-5"
+              >▼<span class="text-2xl text-black font-bold">56</span> %</div
+            >
+            <div class="h-1 bg-blue-500 mt-2"></div>
+          </div>
+
+          <div
+            class="bg-white border border-[var(--border)] p-4 rounded-md shadow"
+          >
+            <div class="flex justify-between items-center">
+              <h2 class="text-lg font-semibold">SKIPTRACED</h2>
+              <div class="relative w-8 h-8 rounded-full bg-gradient-to-r from-[#B12727] to-transparent p-1">
+                <div class="w-full h-full bg-white rounded-full">
+                  <div class="text-red-500 text-center">11</div>
+                </div>
+              </div>
+            </div>
+             <div class="text-2xl text-red-500 mt-5"
+              >▼<span class="text-2xl text-black font-bold">28</span> %</div
+            >
+            <div class="h-1 bg-red-500 mt-2"></div>
+          </div>
+
+          <div class="bg-white border border-[var(--border)] p-4 rounded-md shadow row-span-2">
+            <div class="flex justify-between items-center">
+              <h2 class="text-lg font-semibold">OVERVIEW CURRENT MONTH</h2>
+            </div>
+            <div class="flex justify-between mt-4">
+              <div class="text-center flex-1">
+                <div class="text-sm">AVERAGE COMPLETED</div>
+                <div class="text-xl font-bold">18.9</div>
+                <canvas id="chartCompleted" width="100" height="200"></canvas>
+              </div>
+              <div class="text-center flex-1">
+                <div class="text-sm">AVERAGE DELIVERY</div>
+                <div class="text-xl font-bold">22.9</div>
+                <canvas id="chartDelivery" width="100" height="200"></canvas>
+              </div>
+              <div class="text-center flex-1">
+                <div class="text-sm">INVENTORY T/O</div>
+                <div class="text-xl font-bold">9.9</div>
+                <canvas id="chartInventory" width="100" height="200"></canvas>
+              </div>
+            </div>
+          </div>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          <div
+            class="bg-white border border-[var(--border)] p-4 rounded-md shadow"
+          >
+            <div class="flex justify-between items-center">
+              <h2 class="text-lg font-semibold">DELIVERED</h2>
+              <div class="relative w-8 h-8 rounded-full bg-gradient-to-r from-[#B12727] to-transparent p-1">
+                <div class="w-full h-full bg-white rounded-full">
+                  <div class="text-red-500 text-center">88</div>
+                </div>
+              </div>
+            </div>
+            <div class="text-2xl text-green-500 mt-5"
+            >▲<span class="text-2xl text-black font-bold">66</span> %</div
+          >
+            <div class="h-1 bg-green-500 mt-2"></div>
+          </div>
+
+          <div
+            class="bg-white border border-[var(--border)] p-4 rounded-md shadow"
+          >
+            <div class="flex justify-between items-center">
+              <h2 class="text-lg font-semibold">RETURNED</h2>
+              <div class="relative w-8 h-8 rounded-full bg-gradient-to-r from-[#B12727] to-transparent p-1">
+                <div class="w-full h-full bg-white rounded-full">
+                  <div class="text-red-500 text-center">14</div>
+                </div>
+              </div>
+            </div>
+            <div class="text-2xl text-red-500 mt-5"
+              >▼<span class="text-2xl text-black font-bold">56</span> %</div
+            >
+            <div class="h-1 bg-zinc-500 mt-2"></div>
+          </div>
+
+          <div
+            class="bg-white border border-[var(--border)] p-4 rounded-md shadow"
+          >
+            <div class="flex justify-between items-center">
+              <h2 class="text-lg font-semibold">CLOSED</h2>
+              <div class="relative w-8 h-8 rounded-full bg-gradient-to-r from-[#B12727] to-transparent p-1">
+                <div class="w-full h-full bg-white rounded-full">
+                  <div class="text-red-500 text-center">11</div>
+                </div>
+              </div>
+            </div>
+             <div class="text-2xl text-red-500 mt-5"
+              >▼<span class="text-2xl text-black font-bold">28</span> %</div
+            >
+            <div class="h-1 bg-blue-900 mt-2"></div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white border border-[var(--border)] p-4 rounded-md shadow">
+            <h2 class="text-lg font-semibold mb-4">REAL-TIME INPUTS</h2>
+            <div class="max-h-96 overflow-y-auto">
+              
+                <div class="container">
+                  <table id="dynamic-table" class="min-w-full divide-y divide-gray-200">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Batch</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">CH Code</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Campaign</th>
+                      </tr>
+                    </thead>
+                    <tbody id="table-body" class="bg-white divide-y divide-gray-200" style="font-family: 'Poppins', sans-serif;">
+
+                      <!-- Table rows will be populated dynamically using JavaScript -->
+                    </tbody>
+                  </table>
+                </div>
+              
+   
+
+            </div>
+          </div>
+          
+          <div class="bg-white border border-[var(--border)] p-4 rounded-lg shadow grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <h2 class="text-lg font-semibold mb-4">On Time Full Delivery (OTIF)</h2>
+                <div class="h-94 bg-white w-auto">
+                    <canvas id="otifLineChart" width="400" height="400"></canvas>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center items-center text-center h-full">
+              <div class="w-full md:w-2/3 h-64 mb-4 md:mb-0">
+                  <canvas id="otifChart1" width="256" height="256"></canvas>
+              </div>
+              <div class="w-full md:w-2/3 h-64">
+                  <canvas id="otifChart2" width="200" height="200"></canvas>
+              </div>
+          </div>
+          
+            </div>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            // Sample data for charts (replace with your actual data)
+            var otifLineChartData = {
+                labels: ['January', 'February', 'March', 'April', 'May','June','July'],
+                datasets: [{
+                    label: 'OTIF Performance',
+                    data: [45, 98, 62, 40, 87, 64, 90],
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgba(106, 105, 105)',
+                    tension: 0.4
+                }]
+            };
+        
+            var otifChart1Data = {
+                // labels: ['Category A', 'Category B', 'Category C'],
+                datasets: [{
+                    label: 'OTIF by Category 1',
+                    data: [75, 80, 85],
+                    backgroundColor: [
+                        'rgba(162, 63, 63, 0.6)',
+                        'rgba(162, 63, 63, 0.6)',
+                        'rgba(162, 63, 63, 0.6)'
+                    ]
+                }]
+            };
+        
+            var otifChart2Data = {
+                datasets: [{
+                    label: 'OTIF by Branch',
+                    data: [70, 85, 78],
+                    backgroundColor: [
+                        'rgba(218, 137, 61, 0.6)',
+                        'rgba(218, 137, 61, 0.6)',
+                        'rgba(218, 137, 61, 0.6)'
+                    ]
+                }]
+            };
+        
+            // Chart.js configuration
+            var otifLineChartCtx = document.getElementById('otifLineChart').getContext('2d');
+            var otifLineChart = new Chart(otifLineChartCtx, {
+                type: 'bar',
+                data: otifLineChartData,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'OTIF Performance Over Months'
+                        }
+                    }
+                }
+            });
+        
+            const data1 = {
+      labels: [
+        'NEW INPUT',
+        'DELIVERED',
+        'PRINTED',
+        'SKIPTRACED',
+        'CLOSED',
+        'RETURNED',
+        'ON-GOING'
+      ],
+      datasets: [{
+        data: [29, 55, 60, 75, 92, 88, 55],
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgb(255, 99, 132)',
+        pointBackgroundColor: 'rgb(255, 99, 132)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgb(255, 99, 132)'
+      }, {
+        data: [65, 25, 55, 92, 66, 95, 99],
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgb(54, 162, 235)',
+        pointBackgroundColor: 'rgb(54, 162, 235)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgb(54, 162, 235)'
+      }]
+    };
+
+    var otifChart1Ctx = document.getElementById('otifChart1').getContext('2d');
+    var otifChart1 = new Chart(otifChart1Ctx, {
+      type: 'radar',
+      data: data1,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }
+    });
+    var otifChart2Ctx = document.getElementById('otifChart2').getContext('2d');
+    
+    // Data for the doughnut chart
+    var otifChart2Data = {
+        labels: ['Makati', 'Quezon City', 'Paranaque'], // Branch names
+        datasets: [{
+            label: 'OTIF by Branch', // Label for the dataset
+            data: [30, 50, 20], // Example values for each branch
+            backgroundColor: [
+                'rgba(218, 117, 61, 0.2)', 
+                'rgba(218, 127, 61, 0.2)', 
+                'rgba(218, 137, 61, 0.2)'  
+            ],
+            borderColor: [
+                'rgba(238, 118, 29, 1)', 
+                'rgba(238, 118, 29, 1)', 
+                'rgba(238, 118, 29, 1)'  
+            ],
+            borderWidth: 1 // Border width for each segment
+        }]
+    };
+
+    // Create the doughnut chart
+    var otifChart2 = new Chart(otifChart2Ctx, {
+        type: 'doughnut',
+        data: otifChart2Data,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                  display: false, // Position of the legend
+                },
+                title: {
+                    display: true,
+                    text: 'OTIF by Branch' // Title of the chart
+                }
+            }
+        }
+    });
+        </script>
+        
+        </div>
+      </main>
+    </div>
+  </body>
+  <script>
+    const data = [
+      { batch: 'Batch 1', chCode: 'CH-001' },
+      { batch: 'Batch 2', chCode: 'CH-002' },
+      { batch: 'Batch 3', chCode: 'CH-003' },
+      { batch: 'Batch 4', chCode: 'CH-004' },
+    ];
+    
+    const bankNames = [
+      { acronym: 'BDO', name: 'Banco de Oro (BDO)' },
+      { acronym: 'BPI', name: 'Bank of the Philippine Islands (BPI)' },
+      { acronym: 'MBT', name: 'Metrobank' },
+      { acronym: 'LANDBANK', name: 'Land Bank of the Philippines' },
+      { acronym: 'SEC', name: 'Security Bank' },
+      { acronym: 'PNB', name: 'Philippine National Bank (PNB)' },
+      { acronym: 'UB', name: 'UnionBank' },
+      { acronym: 'DBP', name: 'Development Bank of the Philippines (DBP)' },
+      { acronym: 'EWB', name: 'EastWest Bank' },
+      { acronym: 'RCBC', name: 'Rizal Commercial Banking Corporation (RCBC)' },
+      { acronym: 'CHIB', name: 'China Bank' },
+      { acronym: 'PNBSB', name: 'PNB Savings Bank' },
+      { acronym: 'PBB', name: 'Philippine Business Bank' },
+      { acronym: 'RBank', name: 'Robinsons Bank' },
+      { acronym: 'UCPB', name: 'United Coconut Planters Bank (UCPB)' },
+      { acronym: 'AUB', name: 'Asia United Bank' },
+      { acronym: 'MAYABANK', name: 'Maya bank Philippines' },
+      { acronym: 'BOC', name: 'Bank of Commerce' },
+      { acronym: 'HSBC', name: 'HSBC Philippines' },
+      { acronym: 'SCB', name: 'Standard Chartered Bank Philippines' }
+    ];
+    
+    function getRandomBank() {
+      const randomIndex = Math.floor(Math.random() * bankNames.length);
+      return bankNames[randomIndex];
+    }
+    
+    function getRandomBatch() {
+      return 'Batch ' + Math.floor(Math.random() * 1000);
+    }
+    
+    function getRandomChannelCode() {
+      return 'CH-' + Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+    }
+    
+    function addTableRow() {
+      const tbody = document.getElementById('table-body');
+      const randomBank = getRandomBank();
+      
+      const newRow = document.createElement('tr');
+      newRow.innerHTML = `
+        <td class="px-6 py-3 whitespace-nowrap">${getRandomBatch()}</td>
+        <td class="px-6 py-3 whitespace-nowrap">${getRandomChannelCode()}</td>
+        <td class="px-6 py-3 whitespace-nowrap">${randomBank.acronym}</td>
+      `;
+      
+     tbody.insertBefore(newRow, tbody.firstChild);
+  
+  // Scroll the table to the top to show the new row
+  table.scrollTo({
+    top: 0,
+    behavior: 'smooth'  // Optional: Adds smooth scrolling effect
+  });
+}
+
+    
+    function addRowsContinuously() {
+      setInterval(addTableRow, 1000); // Add a row every second (1000 milliseconds)
+    }
+    
+    addRowsContinuously();
+    </script>
+  <script>
+    $(function() {
+      $('input[name="daterange"]').daterangepicker({
+        opens: 'right', // Open calendar to the right of the input field
+        autoApply: true, // Automatically apply the date range when selecting
+        locale: {
+          format: 'MM/DD/YYYY', // Display dates in this format
+          applyLabel: 'Apply', // Text for apply button
+          cancelLabel: 'Cancel', // Text for cancel button
+          customRangeLabel: 'Custom Range', // Text for custom range option
+          daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'], // Short day names
+          monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'], // Full month names
+        },
+        ranges: {
+          'Today': [moment(), moment()],
+          'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month': [moment().startOf('month'), moment().endOf('month')],
+          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        startDate: moment().subtract(29, 'days'), // Initial start date
+        endDate: moment() // Initial end date
+      }, function(start, end, label) {
+        console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+      });
+    });
+    </script>
+     <script>
+      document.getElementById('filter-icon').addEventListener('click', function() {
+        var filterContainer = document.getElementById('filters');
+        filterContainer.classList.toggle('hidden');
+      });
+    </script>
+       <script>
+        // Chart.js example to populate the charts
+        var ctxCompleted = document.getElementById('chartCompleted').getContext('2d');
+        var chartCompleted = new Chart(ctxCompleted, {
+          type: 'doughnut',
+          data: {
+            // labels: ['Completed'],
+            datasets: [{
+              label: 'Ave Completed',
+              data: [18.9],
+              backgroundColor: 'rgba(54, 162, 235, 0.6)'
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      
+        var ctxDelivery = document.getElementById('chartDelivery').getContext('2d');
+        var chartDelivery = new Chart(ctxDelivery, {
+          type: 'doughnut',
+          data: {
+            // labels: ['Delivery'],
+            datasets: [{
+              label: 'Ave Delivery',
+              data: [22.9],
+              backgroundColor: 'rgba(255, 99, 132, 0.6)'
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      
+        var ctxInventory = document.getElementById('chartInventory').getContext('2d');
+        var chartInventory = new Chart(ctxInventory, {
+          type: 'doughnut',
+          data: {
+            // labels: ['Inventory T/O'],
+            datasets: [{
+              label: 'Turnover',
+              data: [9.9],
+              backgroundColor: 'rgba(75, 192, 192, 0.6)'
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
+</html>

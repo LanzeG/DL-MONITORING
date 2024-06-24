@@ -1,0 +1,16 @@
+
+.daterangepicker {
+    font-family: 'Poppins', sans-serif;
+    border: 2px solid #ccc;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.daterangepicker .calendar-table {
+    background-color: #fff;
+}
+
+.daterangepicker .ranges li.active {
+    background-color: #4dcf78;
+    color: #fff;
+}
