@@ -137,7 +137,7 @@
         <div class="flex justify-start h-8 mb-4">
           <img id="filter-icon" src="/images/filter.png" alt="">
         </div>
-        <div id="filters" class="filters hidden mt-4 mb-4 p-4 border border-gray-300 rounded-lg" style="font-family: 'Poppins', sans-serif;">
+        <div id="filters" class="shadow-inner filters hidden mt-4 mb-4 p-4 border border-gray-300 rounded-lg" style="font-family: 'Poppins', sans-serif;">
           <div class="grid grid-cols-4 gap-4 mb-4">
             <input class="p-2 border border-gray-200 rounded" type="text" name="daterange" value=""/>
             <select class="p-2 border border-gray-200 rounded" name="bankNames" id="bankNames">
@@ -396,7 +396,7 @@
         'ON-GOING'
       ],
       datasets: [{
-        data: [29, 55, 60, 75, 92, 88, 55],
+        data: [100, 66, 56, 28, 28, 56, 28],
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgb(255, 99, 132)',
         pointBackgroundColor: 'rgb(255, 99, 132)',
@@ -404,7 +404,7 @@
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgb(255, 99, 132)'
       }, {
-        data: [65, 25, 55, 92, 66, 95, 99],
+        data: [0, 44, 46, 72, 82, 44, 72],
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
         borderColor: 'rgb(54, 162, 235)',
         pointBackgroundColor: 'rgb(54, 162, 235)',
@@ -529,16 +529,15 @@
       
      tbody.insertBefore(newRow, tbody.firstChild);
   
-  // Scroll the table to the top to show the new row
   table.scrollTo({
     top: 0,
-    behavior: 'smooth'  // Optional: Adds smooth scrolling effect
+    behavior: 'smooth'  
   });
 }
 
     
     function addRowsContinuously() {
-      setInterval(addTableRow, 1000); // Add a row every second (1000 milliseconds)
+      setInterval(addTableRow, 1000); 
     }
     
     addRowsContinuously();
@@ -546,14 +545,14 @@
   <script>
     $(function() {
       $('input[name="daterange"]').daterangepicker({
-        opens: 'right', // Open calendar to the right of the input field
-        autoApply: true, // Automatically apply the date range when selecting
+        opens: 'right', 
+        autoApply: true, 
         locale: {
-          format: 'MM/DD/YYYY', // Display dates in this format
-          applyLabel: 'Apply', // Text for apply button
-          cancelLabel: 'Cancel', // Text for cancel button
-          customRangeLabel: 'Custom Range', // Text for custom range option
-          daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'], // Short day names
+          format: 'MM/DD/YYYY', 
+          applyLabel: 'Apply', 
+          cancelLabel: 'Cancel',
+          customRangeLabel: 'Custom Range',
+          daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'], 
           monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'], // Full month names
         },
         ranges: {
