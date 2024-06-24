@@ -140,7 +140,10 @@
         <div id="filters" class="filters hidden mt-4 mb-4 p-4 border border-gray-300 rounded-lg" style="font-family: 'Poppins', sans-serif;">
           <div class="grid grid-cols-4 gap-4 mb-4">
             <input class="p-2 border border-gray-200 rounded" type="text" name="daterange" value=""/>
-            <input class="p-2 border border-gray-200 rounded" type="text" name="campaign" placeholder="Campaign">
+            <select class="p-2 border border-gray-200 rounded" name="bankNames" id="bankNames">
+              <option value="" disabled selected>Select campaign</option>
+          </select>
+          
             <input class="p-2 border border-gray-200 rounded" type="text" name="chcode" placeholder="CH Code">
             <input class="p-2 border border-gray-200 rounded" type="text" name="batch" placeholder="Batch number">
           </div>
@@ -152,6 +155,7 @@
           </button>
           
         </div>
+        
         <div class="grid grid-cols-4 gap-4 mb-4">
           <div
             class="bg-white border border-[var(--border)] p-4 rounded-md shadow"
@@ -600,7 +604,6 @@
         var chartDelivery = new Chart(ctxDelivery, {
           type: 'doughnut',
           data: {
-            // labels: ['Delivery'],
             datasets: [{
               label: 'Ave Delivery',
               data: [22.9],
@@ -621,7 +624,6 @@
         var chartInventory = new Chart(ctxInventory, {
           type: 'doughnut',
           data: {
-            // labels: ['Inventory T/O'],
             datasets: [{
               label: 'Turnover',
               data: [9.9],
@@ -637,5 +639,17 @@
             }
           }
         });
+      </script>
+      <script>
+        function populateSelect(bankNames) {
+          const selectElement = document.getElementById('bankNames'); 
+          bankNames.forEach(bank => {
+            const option = document.createElement('option'); 
+            option.value = bank.acronym; 
+            option.textContent = bank.name; 
+            selectElement.appendChild(option); 
+          });
+        }
+        populateSelect(bankNames);
       </script>
 </html>
